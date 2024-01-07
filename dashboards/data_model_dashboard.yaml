@@ -1,0 +1,43 @@
+# Visit https://docs.rilldata.com/reference/project-files to learn more about Rill project files.
+
+title: Main Dashboard
+model: data_model
+timeseries: date
+default_time_range: PT1M
+measures:
+  - label: Total records
+    expression: count(*)
+    name: total_records
+    description: Total number of records present
+    format_preset: humanize
+    valid_percent_of_total: true
+
+  - label: Total price
+    expression: sum(price)
+    name: sum_price
+    description: Sum of price
+    format_preset: humanize
+    
+dimensions:
+  - name: name
+    label: Name
+    column: name
+    description: "Entry name value"
+  - name: category
+    label: Category
+    column: tag1
+    description: "First level category"
+  - name: sub_category
+    label: Sub Category
+    column: tag2
+    description: "Second level category (whenever set)"
+  - name: month_year
+    label: Month Year
+    column: month_year
+    description: ""
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
